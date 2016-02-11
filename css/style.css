@@ -1,36 +1,53 @@
-.container{
-	margin: 0 auto;
-	display: block;
-	width: 800px;
-
-	box-shadow: 0px 0px 10px;
-	border-radius: 5px;
-}
-header{
-	padding: 5px;
-	text-align: center;
-	background: red;
-	color: white;
+body {
+    font-family: Helvetica;
+    color: #333;
 }
 
-article ul li{
-	list-style: none;
+a {
+    text-decoration: none;
+    color: #333;
 }
 
-.article-title{
-	width: 200px;
-	position: relative;
-	display: inline-table;
-
+.container {
+    width: 960px;
+	max-width: 100%;
+    margin: 0 auto;
 }
 
-.btn{
-	/*TODO*/
+.header ul {
+    list-style: none;
+    padding-left: 0;
+	background-color: cadetblue;
 }
 
-footer{
-	text-align: center;
-	padding: 10px;
-	background: grey;
-	color: white;
+.header li {
+    float: left;
+}
+
+.header li a {
+    display: inline-block;
+    padding: 20px 15px;
+    color: #fff;
+}
+
+.header li a:hover {
+    background-color: teal;
+}
+
+.item {
+    margin-bottom: 50px;
+}
+
+.footer {
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding: 10px;
+}
+
+.clearfix:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
 }

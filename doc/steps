@@ -1,0 +1,18 @@
+Buat tampilan html dan css dulu untuk masing-masing halaman (*), di root folder.
+Kalau sudah selesai, pindahkan ke folder views, dan kita ganti pembahasan.
+Lalu lanjut buat Model nya dulu, buat CRUD.
+Buat file test.php di root folder untuk mencoba semua function yg dibuat di class Model.
+Buat file index.php untuk public, hubungkan dengan Controller dan View (tampilan masih statis).
+Hubungkan dengan Model.
+
+
+
+
+(*) Halaman yang dibuat: 
+    - Home public / list artikel
+    - Detail artikel public
+    
+    - List artikel admin
+    - tambah artikel
+    - edit artikel
+
