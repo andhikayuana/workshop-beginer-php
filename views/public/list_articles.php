@@ -19,12 +19,12 @@
             <?php foreach ($articles as $article) : ?>
             <div class="item">
                 <h3>
-                    <a href="<?=BASE . 'index.php?page=detail_article&id=' . $article->id;?>">
+                    <a href="<?=BASE . 'index.php?page=detail&id=' . $article->id;?>">
                     <?=$article->title;?>
                     </a>
                 </h3>
                 <p><?=$article->created;?></p>
-                <div>
+                <div align="justify">
                     <?=$article->content;?>
                 </div>
             </div>

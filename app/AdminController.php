@@ -1,5 +1,5 @@
 <?php
-class Controller
+class AdminController
 {
     public function __construct()
     {
@@ -11,7 +11,7 @@ class Controller
     public function list_articles()
     {
         $this->data['articles'] = $this->model->get_articles();
-        $this->view->load('list_articles', $this->data);
+        $this->view->load('admin/list_articles', $this->data);
     }
 
     public function add_article()
@@ -23,7 +23,7 @@ class Controller
                 $this->data['message'] = "<p>Berhasil tambah artikel</p>";
             }
         }
-        $this->view->load('add_article', $this->data);
+        $this->view->load('admin/add_article', $this->data);
     }
 
     public function update_article($id)
@@ -36,7 +36,7 @@ class Controller
             }
         }
         $this->data['article'] = $this->model->get_article($id);
-        $this->view->load('update_article', $this->data);
+        $this->view->load('admin/update_article', $this->data);
     }
 
     public function delete_article($id)

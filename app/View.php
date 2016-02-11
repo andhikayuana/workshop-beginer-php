@@ -3,7 +3,7 @@ class View
 {
     public function load($template, $data = array())
     {
-        $file = 'views/'. $template . '.php';
+        $file = view. $template . '.php';
         if ( file_exists($file) && is_file($file) ) {
             if ( !empty($data) ) {
                 extract($data);

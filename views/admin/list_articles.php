@@ -11,9 +11,9 @@
 
         <div class="sidebar">
             <ul>
-                <li><a href="<?=BASE?>">Dashboard</a></li>
-                <li><a href="<?=BASE?>index.php?page=add_article">Tambah Artikel</a></li>
-                <li><a href="<?=BASE?>index.php?page=list_articles">List Artikel</a></li>
+                <li><a href="<?=BASE?>admin.php">Dashboard</a></li>
+                <li><a href="<?=BASE?>admin.php?page=add_article">Tambah Artikel</a></li>
+                <li><a href="<?=BASE?>admin.php?page=list_articles">List Artikel</a></li>
             </ul>
         </div>
 
@@ -34,8 +34,8 @@
                         <?=substr($article->content, 0, 100);?>
                     </td>
                     <td>
-                        <a href="<?=BASE?>index.php?page=update_article&id=<?=$article->id?>" class="btn btn-edit">edit</a>
-                        <a href="<?=BASE?>index.php?page=delete_article&id=<?=$article->id?>" class="btn btn-hapus">hapus</a>
+                        <a href="<?=BASE?>admin.php?page=update_article&id=<?=$article->id?>" class="btn btn-edit">edit</a>
+                        <a href="<?=BASE?>admin.php?page=delete_article&id=<?=$article->id?>" class="btn btn-hapus" onclick="return confirm('Hapus artikel?')">hapus</a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

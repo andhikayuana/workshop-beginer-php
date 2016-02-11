@@ -11,9 +11,9 @@
 
         <div class="sidebar">
             <ul>
-                <li><a href="<?=BASE?>">Dashboard</a></li>
-                <li><a href="<?=BASE?>index.php?page=add_article">Tambah Artikel</a></li>
-                <li><a href="<?=BASE?>index.php?page=list_articles">List Artikel</a></li>
+                <li><a href="<?=BASE?>admin.php">Dashboard</a></li>
+                <li><a href="<?=BASE?>admin.php?page=add_article">Tambah Artikel</a></li>
+                <li><a href="<?=BASE?>admin.php?page=list_articles">List Artikel</a></li>
             </ul>
         </div>
 
