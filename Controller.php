@@ -8,25 +8,41 @@ class Controller
         $this->data = array();
     }
 
-    public function articles()
+    public function list_articles()
     {
-        $this->data['articles'] = $this->model->getAll();
-        $this->view->load('articles', $this->data);
+        $this->data['articles'] = $this->model->get_articles();
+        $this->view->load('list_articles', $this->data);
     }
 
-    public function detail($id)
+    public function add_article()
     {
-        $this->data['detail'] = $this->model->getDetail($id);
-        $this->view->load('detail', $this->data);
+        $this->data['message'] = "";
+        if (isset($_POST['title'])) {
+            $sukses = $this->model->add_article($_POST);
+            if ($sukses) {
+                $this->data['message'] = "<p>Berhasil tambah artikel</p>";
+            }
+        }
+        $this->view->load('add_article', $this->data);
     }
 
-    public function edit($id)
+    public function update_article($id)
     {
-        # code...
+        $this->data['message'] = "";
+        if (isset($_POST['title'])) {
+            $sukses = $this->model->update_article($id, $_POST);
+            if ($sukses) {
+                $this->data['message'] = "<p>Berhasil update artikel</p>";
+            }
+        }
+        $this->data['article'] = $this->model->get_article($id);
+        $this->view->load('update_article', $this->data);
     }
 
-    public function delete($id)
+    public function delete_article($id)
     {
-        # code...
+        $this->model->delete_article($id);
+        $this->list_articles();
     }
+
 }

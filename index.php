@@ -2,34 +2,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require 'Controller.php';
-require 'Model.php';
-require 'View.php';
+define('BASE', 'http://localhost/php/simple_blog/');
 
-$page = !empty($_GET['page']) ? $_GET['page'] : null;
+require 'Controller.php';
+require 'View.php';
+require 'Model.php';
 
 $controller = new Controller();
 
-switch ($page) {
+$page = isset($_GET['page']) ? $_GET['page'] : 'list_articles';
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
-    case 'articles' :
-    default:
-        $controller->articles();
-	    break;
-
-    case 'detail' :
-        $id = $_GET['id'];
-        $controller->detail($id);
-	    break;
-
-    case 'edit' :
-    	$id = $_GET['id'];
-    	$controller->edit($id);
-	    break;
-
-    case 'delete':
-    	$id = $_GET['id'];
-    	$controller->delete($id);
-		break;
-
-}
+$controller->$page($id);

@@ -1,35 +1,52 @@
 <?php
-class Model
+class Model 
 {
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=simple_blog;charset=utf8', 'root', 'programmer');
+        $dbhost = 'localhost';
+        $dbname = 'simple_blog';
+        $dbuser = 'root';
+        $dbpass = 'root';
+
+        $this->db = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function getAll()
+    public function get_articles()
     {
-        $sql = "SELECT id, title, content FROM articles";
-        $data = $this->db->query($sql);
+        $query = "SELECT id, title, created, content FROM articles";
+        $data = $this->db->query($query);
         return $data->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getDetail($id)
+    public function get_article($id)
     {
-        $sql = "SELECT id, title, content FROM articles WHERE id = $id";
-        $data = $this->db->query($sql);
+        $query = "SELECT id, title, content, created FROM articles WHERE id = $id";
+        $data = $this->db->query($query);
         return $data->fetch(PDO::FETCH_OBJ);
     }
 
-    public function edit($id)
+    public function add_article($data)
     {
-        # code...
+        $title = $data['title'];
+        $content = $data['content'];
+
+        $query = "INSERT INTO articles SET title = '$title', content = '$content', created = NOW()";
+        return $this->db->exec($query);
     }
 
-    public function delete($id)
+    public function delete_article($id)
     {
-        # code...
+        $query = "DELETE FROM articles WHERE id = $id";
+        return $this->db->exec($query);
     }
 
-    
+    public function update_article($id, $data)
+    {
+        $title = $data['title'];
+        $content = $data['content'];
+
+        $query = "UPDATE articles SET title = '$title', content = '$content' WHERE id = $id";
+        return $this->db->exec($query);
+    }
 }
